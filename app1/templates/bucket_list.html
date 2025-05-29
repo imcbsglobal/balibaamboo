@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Bucket List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #f9f9f9, #e0eaff);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .btn-submit {
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+
+        ul li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 My Bucket List</h1>
+
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center">
+                <button type="submit" class="btn btn-submit mt-2">➕ Add</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <h2>🌟 Upcoming Goals</h2>
+        <ul class="list-group">
+            {% for item in items %}
+                <li class="list-group-item">
+                    <strong>{{ item.title }}</strong> – Target: {{ item.target_date }}
+                </li>
+            {% empty %}
+                <li class="list-group-item text-muted">No items yet!</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+

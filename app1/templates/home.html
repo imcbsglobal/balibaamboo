@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bamboo House India</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Animation keyframes */
+        @keyframes slideFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Apply animation to logo heading and paragraph */
+        .logo h1, .logo p {
+            opacity: 0;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+        }
+
+        .logo h1 {
+            animation-name: slideFadeIn;
+            animation-delay: 0.3s;
+        }
+
+        .logo p {
+            animation-name: slideFadeIn;
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>BAMBOO HOUSE INDIA</h1>
+            <p>Creating Green Livelihoods</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">What We Do</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">House Pricing</a></li>
+                <li><a href="#">Media</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img class="logo-img" src="{% static 'static/logo.jpg' %}" alt="Bamboo Construction">
+        <h2>Discover Bamboo House India</h2>
+    </section>
+
+    <a href="https://wa.me/yourwhatsapplink" class="whatsapp-float" target="_blank">
+        <img src="{% static 'img/whatsapp-icon.png' %}" alt="WhatsApp Chat">
+    </a>
+</body>
+</html>

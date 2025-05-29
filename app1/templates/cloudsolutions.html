@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cloud Solutions - Your Company</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f8ff;
+      color: #333;
+    }
+    header {
+      background: #006d77;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .company-info {
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button, .back-home {
+      background: #006d77;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button:hover, .back-home:hover {
+      background: #004f52;
+    }
+
+    .back-home {
+      margin-top: 20px;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+
+  <header data-aos="fade-down">
+    <h1>Cloud Solutions</h1>
+    <p>Power your business with scalable and secure cloud technologies</p>
+  </header>
+
+  <section data-aos="fade-up">
+    <div class="company-info">
+      <h2>About Our Cloud Services</h2>
+      <p>
+        At <strong>Your Company</strong>, we specialize in designing and deploying cloud-native applications tailored to your needs. From AWS to Azure, we ensure your infrastructure is robust, secure, and scalable. Our team of experts is here to help modernize your operations and optimize your digital transformation journey.
+      </p>
+    </div>
+
+    <h2>Get in Touch</h2>
+    <form method="post" action="{% url 'cloudsolutions' %}">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Back to Home Button -->
+    <a href="{% url 'home' %}" class="back-home">← Back to Home</a>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+  </script>
+
+</body>
+</html>

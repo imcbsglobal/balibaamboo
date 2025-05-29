@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - Bali Bamboo Resort</title>
+    <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 0;
+            background: #f8faf8;
+            color: #2e2e2e;
+            line-height: 1.6;
+        }
+        .about-hero {
+            background: url("{% static 'photo/resort.jpg' %}") center/cover no-repeat;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+        .about-content {
+            max-width: 1100px;
+            margin: 2rem auto 4rem;
+            padding: 0 20px;
+        }
+        .about-section {
+            margin-bottom: 3.5rem;
+            background: whitesmoke;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+        }
+        .section-flex {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .section-flex.reverse {
+            flex-direction: row-reverse;
+        }
+        .text {
+            flex: 1 1 400px;
+        }
+        .text h2 {
+            color: #2a7f62;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+        .text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        .text ul {
+            list-style-type: disc;
+            margin-left: 1.2rem;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        .image {
+            flex: 1 1 400px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .image img {
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+            object-fit: cover;
+        }
+        .image img.small-img {
+            max-width: 180px;
+            align-self: flex-start;
+        }
+        .attractions {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .attraction-card {
+            background: #e7f0e7;
+            max-width: 300px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgb(0 0 0 / 0.12);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .attraction-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 15px rgb(0 0 0 / 0.25);
+        }
+        .attraction-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .info {
+            padding: 1rem;
+            color: #2b5038;
+        }
+        .info h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .info p {
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+        .bamboo-section .text-content h2 {
+            color: #2a7f62;
+        }
+        .about-section > h2 {
+            color: #2a7f62;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .section-flex, .section-flex.reverse {
+                flex-direction: column;
+            }
+            .image img.small-img {
+                max-width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="about-hero">
+    About Bali Bamboo Resort
+</div>
+
+<div class="about-content">
+
+    <div class="about-section">
+        <div class="section-flex">
+            <div class="text">
+                <h2>Finding Joy in the Beauty of Nature 🌳</h2>
+                <p>
+                    Bali Bamboo Resort is a peaceful sanctuary nestled in the heart of <strong>Wayanad, Kerala</strong>, a destination known for its serene forests and misty hills. Our unique 3-star eco-resort is designed entirely using <strong>bamboo</strong> — from the cottages and decor to even the spoons and dining furniture.
+                </p>
+                <p>
+                    We invite couples and families to unwind in cozy bamboo cottages surrounded by greenery and cool breezes. The resort lies near <strong>Chembra Peak, Edakkal Caves</strong>, and <strong>Soochipara Waterfalls</strong>, offering nature trails and adventurous trekking.
+                </p>
+            </div>
+            <div class="image">
+                <img src="{% static 'photo/resort.jpg' %}" alt="Wayanad Bamboo Resort" />
+            </div>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <div class="section-flex reverse">
+            <div class="image">
+                <img src="{% static 'photo/c.jpg' %}" alt="Bamboo Dining Setup" />
+                <img src="{% static 'photo/v.jpg' %}" alt="Bamboo utilities" class="small-img" />
+                <img src="{% static 'photo/a.jpg' %}" alt="Bamboo utilities" class="small-img" />
+                <img src="{% static 'photo/b.jpg' %}" alt="Bamboo utilities" class="small-img" />
+                <img src="{% static 'photo/d.jpg' %}" alt="Bamboo utilities" class="small-img" />
+            </div>
+            <div class="text">
+                <h2>Built Entirely from Bamboo 🎍</h2>
+                <p>
+                    We believe in <strong>sustainable living</strong> and have taken it to the next level — our entire resort is made using <strong>locally sourced bamboo</strong>. From cottages, dining tables, and chairs to the smallest items like spoons, straws, and decorative lighting — everything is <em>handcrafted with care</em>.
+                </p>
+                <p>
+                    Bamboo is not just beautiful — it's <strong>strong, flexible, and eco-friendly</strong>. It perfectly reflects our philosophy of blending <span class="highlight">nature with comfort</span>.
+                </p>
+                <p>
+                    Our artisans use <strong>traditional weaving</strong> techniques, ensuring every piece is <em>unique and cultural</em>. By doing so, we empower <span class="highlight">local communities</span> and protect heritage.
+                </p>
+                <p>
+                    Bamboo also helps reduce our <strong>carbon footprint</strong> — it grows rapidly and regenerates the earth. Choosing bamboo means embracing a <em>harmonious lifestyle</em> with nature.
+                </p>
+                <p>
+                    Guests often admire the <strong>warm ambiance</strong> created by bamboo — a retreat that connects you with <span class="highlight">earth’s serenity</span> and offers modern luxury.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <div class="section-flex">
+            <div class="text">
+                <h2>Our Offerings 🌸</h2>
+                <ul>
+                    <li>Eco-friendly bamboo cottages with scenic mountain views</li>
+                    <li>Locally inspired bamboo-crafted interiors and exteriors</li>
+                    <li>Private space for families and couples</li>
+                    <li>Campfire zones and open yoga decks</li>
+                    <li>Multi-cuisine restaurant with bamboo cutlery</li>
+                    <li>Nature trails and guided forest walks</li>
+                </ul>
+            </div>
+            <div class="image">
+                <img src="{% static 'photo/family.jpg' %}" alt="Bamboo Room Interior" />
+            </div>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <h2>Nearby Attractions in Wayanad 🌄</h2>
+        <div class="attractions">
+            <div class="attraction-card">
+                <img src="{% static 'photo/chembra.jpg' %}" alt="Chembra Peak" />
+                <div class="info">
+                    <h3>Chembra Peak</h3>
+                    <p>Wayanad’s highest point, ideal for trekking with a heart-shaped lake at the top.</p>
+                </div>
+            </div>
+
+            <div class="attraction-card">
+                <img src="{% static 'photo/edakkal.jpg' %}" alt="Edakkal Caves" />
+                <div class="info">
+                    <h3>Edakkal Caves</h3>
+                    <p>Explore ancient rock carvings dating back to the Neolithic age.</p>
+                </div>
+            </div>
+
+            <div class="attraction-card">
+                <img src="{% static 'photo/soochipara.jpg' %}" alt="Soochipara Waterfalls" />
+                <div class="info">
+                    <h3>Soochipara Waterfalls</h3>
+                    <p>A stunning three-tiered waterfall perfect for adventure and photography.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% include 'footer.html' %}
+
+</body>
+</html>

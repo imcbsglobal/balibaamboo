@@ -1,0 +1,166 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f5fdf8;
+  color: #0d0e0d;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 40px;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+}
+
+.section {
+  padding: 60px 40px;
+  max-width: 1000px;
+  margin: auto;
+  background: #ffffff;
+  color: #1e3923;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #3b6e34;
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.why-choose-us {
+  padding: 60px 40px;
+  max-width: 1000px;
+  margin: auto;
+  background: #ffffff;
+  color: #1e3923;
+}
+
+.why-choose-us h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #3b6e34;
+}
+
+.highlight-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.why-choose-us ul {
+  list-style-type: square;
+  padding-left: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.image-row img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.preview-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card h3 {
+  color: #3b6e34;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+}
+
+.contact-info {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+footer {
+  background: #7cb075;
+  color: #f1f1f1;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .image-row img {
+    width: 90%;
+    height: auto;
+  }
+}
+

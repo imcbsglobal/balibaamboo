@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile App Development Inquiry - Your Company</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    main {
+      background: #fff;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 100%;
+      padding: 30px 40px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      animation: fadeInUp 0.8s ease forwards;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      text-align: center;
+      color: #4a148c;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    p.description {
+      text-align: center;
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      max-width: 450px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+      width: 100%;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: #6a11cb;
+      outline: none;
+      box-shadow: 0 0 8px rgba(106, 17, 203, 0.4);
+    }
+    button {
+      background: #6a11cb;
+      color: white;
+      font-weight: 600;
+      padding: 15px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+    button:hover {
+      background: #520db2;
+    }
+    .thankyou-box {
+      margin-top: 30px;
+      background: #e0d7f7;
+      border-radius: 12px;
+      padding: 20px 25px;
+      border-left: 6px solid #6a11cb;
+      color: #4a148c;
+      animation: fadeIn 1s ease forwards;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .thankyou-box h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    .thankyou-box p {
+      margin: 5px 0;
+      font-weight: 500;
+    }
+    a.back-home {
+      margin-top: 30px;
+      text-decoration: none;
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 25px;
+      background-color: #6a11cb;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    a.back-home:hover {
+      background-color: #520db2;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      main {
+        padding: 25px 20px;
+      }
+      p.description {
+        font-size: 1rem;
+      }
+      button, a.back-home {
+        font-size: 1rem;
+        padding: 14px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>Mobile App Development Inquiry</h1>
+    <p class="description">
+      Tell us your requirements and get a custom quote for your Android/iOS app.
+    </p>
+
+    <form method="POST" novalidate>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Request a Quote</button>
+    </form>
+
+    {% if submitted_inquiry %}
+    <div class="thankyou-box">
+      <h2>Thank you, {{ submitted_inquiry.name }}!</h2>
+      <p><strong>Email:</strong> {{ submitted_inquiry.email }}</p>
+      <p><strong>Your Requirements:</strong></p>
+      <p>{{ submitted_inquiry.requirements|linebreaksbr }}</p>
+    </div>
+    {% endif %}
+
+    <a href="{% url 'home' %}" class="back-home">&larr; Back to Home</a>
+  </main>
+
+</body>
+</html>

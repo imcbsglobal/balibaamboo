@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div style="text-align: center; padding: 100px;">
+  <h1>Thank You!</h1>
+  <p>Your message has been sent successfully. We’ll get back to you soon.</p>
+  <a href="/" style="color: #14805e;">Go back to Home</a>
+</div>
+
+{% include 'footer.html' %}
+</body>
+</html>

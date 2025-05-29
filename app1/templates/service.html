@@ -1,0 +1,94 @@
+<section class="services-section">
+  <div class="services-container">
+    <h2>🛠️ Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>🎯 Goal Management</h3>
+        <p>Easily add, edit, and track your life goals with deadlines and descriptions.</p>
+      </div>
+      <div class="service-card">
+        <h3>📅 Smart Reminders</h3>
+        <p>Never miss your dream deadline with intelligent target date reminders.</p>
+      </div>
+      <div class="service-card">
+        <h3>📊 Progress Tracker</h3>
+        <p>Monitor your progress and stay motivated with visual goal tracking.</p>
+      </div>
+      <div class="service-card">
+        <h3>🌐 Simple Interface</h3>
+        <p>Clean, responsive UI designed for an effortless user experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+    padding: 4rem 2rem;
+    animation: fadeInServices 1.5s ease-out;
+  }
+
+  .services-container {
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .services-container h2 {
+    font-size: 2.4rem;
+    color: #3f51b5;
+    margin-bottom: 3rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    animation: slideUpServices 1.2s ease;
+  }
+
+  .service-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+  }
+
+  .service-card h3 {
+    color: #3f51b5;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card p {
+    color: #555;
+    font-size: 1rem;
+  }
+
+  @keyframes fadeInServices {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUpServices {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @media (max-width: 768px) {
+    .services-container h2 {
+      font-size: 2rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+    }
+  }
+</style>

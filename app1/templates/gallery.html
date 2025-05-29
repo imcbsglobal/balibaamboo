@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery - Bali Bamboo Resort</title>
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #f5fdf8;
+        }
+
+        .gallery-hero {
+            background: url("{% static 'photo/bamboo.jpg' %}") no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-hero h1,
+        .gallery-hero p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-hero h1 {
+            font-size: 3rem;
+        }
+
+        .gallery-hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 10px auto 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .gallery-grid img {
+             width: 100%;
+             height: 250px;
+             object-fit: cover;
+             border-radius: 0; /* No rounded corners */
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+             cursor: pointer;
+}
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal styles */
+        #imageModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        #imageModal img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+
+        #closeModal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .gallery-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="gallery-hero">
+        <div>
+            <h1>Bali Bamboo Resort – Gallery</h1>
+            <p>Immerse yourself in the natural beauty and peaceful vibes of our bamboo paradise.</p>
+        </div>
+    </div>
+
+    <div class="gallery-grid">
+        <img src="{% static 'photo/delux.jpg' %}" alt="Resort 1">
+        <img src="{% static 'photo/family.jpg' %}" alt="Resort 2">
+        <img src="{% static 'photo/s.jpg' %}" alt="Resort 3">
+        <img src="{% static 'photo/p.jpg' %}" alt="Resort 4">
+        <img src="{% static 'photo/t.jpg' %}" alt="Resort 5">
+
+        <img src="{% static 'photo/delux.jpg' %}" alt="Resort 1">
+        <img src="{% static 'photo/family.jpg' %}" alt="Resort 2">
+        <img src="{% static 'photo/s.jpg' %}" alt="Resort 3">
+        <img src="{% static 'photo/p.jpg' %}" alt="Resort 4">
+        <img src="{% static 'photo/t.jpg' %}" alt="Resort 5">
+
+        <img src="{% static 'photo/delux.jpg' %}" alt="Resort 1">
+        <img src="{% static 'photo/family.jpg' %}" alt="Resort 2">
+        <img src="{% static 'photo/s.jpg' %}" alt="Resort 3">
+        <img src="{% static 'photo/p.jpg' %}" alt="Resort 4">
+        <img src="{% static 'photo/t.jpg' %}" alt="Resort 5">
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal">
+        <span id="closeModal">&times;</span>
+        <img id="modalImage" src="">
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script>
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const closeModal = document.getElementById("closeModal");
+
+        document.querySelectorAll(".gallery-grid img").forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+            });
+        });
+
+        closeModal.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+</html>

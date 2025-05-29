@@ -1,0 +1,32 @@
+<!-- templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Bali Bamboo Resort{% endblock %}</title>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+
+  <!-- Additional CSS from child templates -->
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  <!-- Navbar Include -->
+  {% include 'partials/navbar.html' %}
+
+  <!-- Main Content Block -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer Include -->
+  {% include 'partials/footer.html' %}
+
+  <!-- Additional Scripts from child templates -->
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
