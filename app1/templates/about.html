@@ -5,248 +5,950 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About Us - Bali Bamboo Resort</title>
-    <link rel="stylesheet" href="{% static 'main/style.css' %}" />
     <style>
-        body {
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+       body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0; padding: 0;
+            margin: 0; 
+            padding: 0;
             background: #f8faf8;
             color: #2e2e2e;
             line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
         }
+
+        /* Hero Section */
         .about-hero {
-            background: url("{% static 'photo/resort.jpg' %}") center/cover no-repeat;
-            height: 300px;
+            background: url("https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80") center/cover no-repeat;
+            height: 700px; 
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-            font-size: 2.8rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            font-size: 3rem;
             font-weight: 700;
-        }
-        .about-content {
-            max-width: 1100px;
-            margin: 2rem auto 4rem;
-            padding: 0 20px;
-        }
-        .about-section {
-            margin-bottom: 3.5rem;
-            background: whitesmoke;
-            padding: 1.8rem 2rem;
-            box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
-        }
-        .section-flex {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        .section-flex.reverse {
-            flex-direction: row-reverse;
-        }
-        .text {
-            flex: 1 1 400px;
-        }
-        .text h2 {
-            color: #2a7f62;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-        .text p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            color: #444;
-        }
-        .text ul {
-            list-style-type: disc;
-            margin-left: 1.2rem;
-            color: #555;
-            font-size: 1.1rem;
-        }
-        .image {
-            flex: 1 1 400px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-        .image img {
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
-            object-fit: cover;
-        }
-        .image img.small-img {
-            max-width: 180px;
-            align-self: flex-start;
-        }
-        .attractions {
-            display: flex;
-            gap: 1.8rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .attraction-card {
-            background: #e7f0e7;
-            max-width: 300px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgb(0 0 0 / 0.12);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        .attraction-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 6px 15px rgb(0 0 0 / 0.25);
-        }
-        .attraction-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-        }
-        .info {
-            padding: 1rem;
-            color: #2b5038;
-        }
-        .info h3 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-        .info p {
-            font-size: 1rem;
-            line-height: 1.3;
-        }
-        .bamboo-section .text-content h2 {
-            color: #2a7f62;
-        }
-        .about-section > h2 {
-            color: #2a7f62;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0;
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .section-flex, .section-flex.reverse {
+        /* About Section */
+        .about-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #4a9b8e;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #4a9b8e;
+            line-height: 1.3;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .text-content {
+            padding-right: 20px;
+        }
+
+        .text-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .images-container {
+            position: relative;
+            height: 500px;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .image-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .image-2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 400px;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            z-index: 1;
+        }
+
+        .image-1 img,
+        .image-2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-1:hover img,
+        .image-2:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-section {
+            display: flex;
+            max-width: 1400px;
+            margin: 80px auto;
+            background: #f8f9fa;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .image-section {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            position: relative;
+            min-height: 600px;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+        }
+
+        .content-section {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: white;
+        }
+
+        .content-section .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #666;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .content-section .main-heading {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2dd4bf;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content-section .description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #2dd4bf;
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .feature-icon::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #2dd4bf;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            background: #2dd4bf;
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            text-transform: capitalize;
+        }
+
+        .cta-button:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(45, 212, 191, 0.3);
+        }
+
+        /* Offerings Section */
+        .offerings-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .offerings-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .content-side {
+            padding-right: 20px;
+        }
+
+        .offerings-section .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #20b2aa;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .offerings-section .section-title .icon {
+            font-size: 28px;
+        }
+
+        .section-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .offerings-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .offering-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .offering-item:hover {
+            background-color: rgba(32, 178, 170, 0.05);
+        }
+
+        .bullet {
+            width: 8px;
+            height: 8px;
+            background-color: #20b2aa;
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .offering-text {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .image-side {
+            position: relative;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Attractions Section */
+        .attractions-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .attractions-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .attractions-section .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .attractions-section .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #20b2aa;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .attraction-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(32, 178, 170, 0.9);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .info-icon {
+            font-size: 16px;
+            color: #20b2aa;
+        }
+
+        .card-button {
+            width: 100%;
+            background: linear-gradient(135deg, #20b2aa, #17a2b8);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .card-button:hover {
+            background: linear-gradient(135deg, #17a2b8, #20b2aa);
+            transform: translateY(-2px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .cta-text {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .why-choose-section {
                 flex-direction: column;
+                margin: 40px 20px;
             }
-            .image img.small-img {
+            
+            .image-section {
+                min-height: 400px;
+            }
+            
+            .content-section {
+                padding: 40px;
+            }
+            
+            .content-section .main-heading {
+                font-size: 28px;
+            }
+
+            .offerings-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .content-side {
+                padding-right: 0;
+                order: 2;
+            }
+
+            .image-side {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                height: 400px;
+                font-size: 2.2rem;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .text-content {
+                padding-right: 0;
+            }
+
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+
+            .images-container {
+                height: 400px;
+                margin-top: 20px;
+                width: 100%;
                 max-width: 100%;
-                margin-top: 1rem;
+            }
+
+            .image-1 {
+                width: 60%;
+                max-width: 240px;
+                height: 160px;
+                right: 10px;
+            }
+
+            .image-2 {
+                width: 80%;
+                max-width: 280px;
+                height: 220px;
+                left: 10px;
+            }
+
+            .content-section {
+                padding: 30px 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .attractions-section .section-title {
+                font-size: 32px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .attractions-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-section {
+                padding: 40px 15px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .content-section {
+                padding: 20px 15px;
+            }
+
+            .attractions-container {
+                padding: 0 15px;
+            }
+
+            .card-content {
+                padding: 20px;
+            }
+
+            .cta-section {
+                padding: 30px 20px;
+            }
+
+            .images-container {
+                height: 350px;
+            }
+
+            .image-1 {
+                width: 55%;
+                height: 140px;
+            }
+
+            .image-2 {
+                width: 70%;
+                height: 180px;
             }
         }
     </style>
 </head>
 <body>
-
-{% include 'navbar.html' %}
-
+ {% include 'navbar.html' %}
+<!-- Hero Section -->
+ 
 <div class="about-hero">
     About Bali Bamboo Resort
-</div>
-
-<div class="about-content">
-
-    <div class="about-section">
-        <div class="section-flex">
-            <div class="text">
-                <h2>Finding Joy in the Beauty of Nature 🌳</h2>
-                <p>
-                    Bali Bamboo Resort is a peaceful sanctuary nestled in the heart of <strong>Wayanad, Kerala</strong>, a destination known for its serene forests and misty hills. Our unique 3-star eco-resort is designed entirely using <strong>bamboo</strong> — from the cottages and decor to even the spoons and dining furniture.
-                </p>
-                <p>
-                    We invite couples and families to unwind in cozy bamboo cottages surrounded by greenery and cool breezes. The resort lies near <strong>Chembra Peak, Edakkal Caves</strong>, and <strong>Soochipara Waterfalls</strong>, offering nature trails and adventurous trekking.
-                </p>
-            </div>
-            <div class="image">
-                <img src="{% static 'photo/resort.jpg' %}" alt="Wayanad Bamboo Resort" />
-            </div>
-        </div>
-    </div>
-
-    <div class="about-section">
-        <div class="section-flex reverse">
-            <div class="image">
-                <img src="{% static 'photo/c.jpg' %}" alt="Bamboo Dining Setup" />
-                <img src="{% static 'photo/v.jpg' %}" alt="Bamboo utilities" class="small-img" />
-                <img src="{% static 'photo/a.jpg' %}" alt="Bamboo utilities" class="small-img" />
-                <img src="{% static 'photo/b.jpg' %}" alt="Bamboo utilities" class="small-img" />
-                <img src="{% static 'photo/d.jpg' %}" alt="Bamboo utilities" class="small-img" />
-            </div>
-            <div class="text">
-                <h2>Built Entirely from Bamboo 🎍</h2>
-                <p>
-                    We believe in <strong>sustainable living</strong> and have taken it to the next level — our entire resort is made using <strong>locally sourced bamboo</strong>. From cottages, dining tables, and chairs to the smallest items like spoons, straws, and decorative lighting — everything is <em>handcrafted with care</em>.
-                </p>
-                <p>
-                    Bamboo is not just beautiful — it's <strong>strong, flexible, and eco-friendly</strong>. It perfectly reflects our philosophy of blending <span class="highlight">nature with comfort</span>.
-                </p>
-                <p>
-                    Our artisans use <strong>traditional weaving</strong> techniques, ensuring every piece is <em>unique and cultural</em>. By doing so, we empower <span class="highlight">local communities</span> and protect heritage.
-                </p>
-                <p>
-                    Bamboo also helps reduce our <strong>carbon footprint</strong> — it grows rapidly and regenerates the earth. Choosing bamboo means embracing a <em>harmonious lifestyle</em> with nature.
-                </p>
-                <p>
-                    Guests often admire the <strong>warm ambiance</strong> created by bamboo — a retreat that connects you with <span class="highlight">earth’s serenity</span> and offers modern luxury.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="about-section">
-        <div class="section-flex">
-            <div class="text">
-                <h2>Our Offerings 🌸</h2>
-                <ul>
-                    <li>Eco-friendly bamboo cottages with scenic mountain views</li>
-                    <li>Locally inspired bamboo-crafted interiors and exteriors</li>
-                    <li>Private space for families and couples</li>
-                    <li>Campfire zones and open yoga decks</li>
-                    <li>Multi-cuisine restaurant with bamboo cutlery</li>
-                    <li>Nature trails and guided forest walks</li>
-                </ul>
-            </div>
-            <div class="image">
-                <img src="{% static 'photo/family.jpg' %}" alt="Bamboo Room Interior" />
-            </div>
-        </div>
-    </div>
-
-    <div class="about-section">
-        <h2>Nearby Attractions in Wayanad 🌄</h2>
-        <div class="attractions">
-            <div class="attraction-card">
-                <img src="{% static 'photo/chembra.jpg' %}" alt="Chembra Peak" />
-                <div class="info">
-                    <h3>Chembra Peak</h3>
-                    <p>Wayanad’s highest point, ideal for trekking with a heart-shaped lake at the top.</p>
-                </div>
-            </div>
-
-            <div class="attraction-card">
-                <img src="{% static 'photo/edakkal.jpg' %}" alt="Edakkal Caves" />
-                <div class="info">
-                    <h3>Edakkal Caves</h3>
-                    <p>Explore ancient rock carvings dating back to the Neolithic age.</p>
-                </div>
-            </div>
-
-            <div class="attraction-card">
-                <img src="{% static 'photo/soochipara.jpg' %}" alt="Soochipara Waterfalls" />
-                <div class="info">
-                    <h3>Soochipara Waterfalls</h3>
-                    <p>A stunning three-tiered waterfall perfect for adventure and photography.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </div>
+<p style="text-align: center; max-width: 700px; margin: 20px auto; font-size: 16px; line-height: 1.6; color: #444;">
+   
+</p>
 
-{% include 'footer.html' %}
+
+
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="section-header">
+        <div class="section-label">About Us</div>
+        <h1 class="section-title">Finding Joy in the Beauty of Nature</h1>
+    </div>
+    
+    <div class="content-wrapper">
+        <div class="text-content">
+            <p>Discover the brand-new 3-star resort located at Devikulam, the coolest point in Munnar, nestled in the untouched region of this hill station where life moves at a slower pace, surrounded by tea gardens and forests. Enjoy a cozy and comfortable stay suitable for families and couples, situated near Meesapulimala, Kurishumala, and Chokramudi trekking trails. The Thief Cave is also nearby. Experience the cool climate where even in the noontime refreshing breezes sweep through the tea gardens.</p>
+            
+            <p>Nestled in the cool climate of Munnar, our brand new 3-star hotel offers an idealistic location to experience all the wonders this enchanting destination has to offer. Whether you're a couple seeking romance or a family in search of adventure, our establishment caters to all, providing the perfect blend of climate, luxury, and affordability. With spacious rooms, a multi-cuisine restaurant, and a rejuvenating spa, our hotel ensures a comfortable stay without breaking the bank. Discover the magic of Munnar while enjoying the comforts of our hospitality—a truly irresistible choice for discerning travelers seeking a memorable and budget-friendly getaway.</p>
+        </div>
+        
+        <div class="images-container">
+            <div class="image-1">
+                <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Resort exterior with mountain view">
+            </div>
+            <div class="image-2">
+                <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Woman enjoying mountain view from balcony">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="why-choose-section">
+    <div class="image-section">
+        <div class="image-overlay"></div>
+    </div>
+    
+    <div class="content-section">
+        <h3 class="section-title">Why Choose Us</h3>
+        
+        <h1 class="main-heading">
+            We Present You Unforgettable Experience In The Calm Beauty Of Munnar
+        </h1>
+        
+        <p class="description">
+            Our resort offers a peaceful retreat surrounded by untouched nature, 
+            ensuring a rejuvenating stay. Experience cozy comfort in our suites ranging 
+            from deluxe to super deluxe and family rooms designed to cater to the 
+            diverse needs of families and couples. With trekking trails like 
+            Meesapulimala and nearby attractions such as the Thief Cave, our resort 
+            provides easy access to thrilling outdoor adventures. Our multi-cuisine 
+            restaurant, serving healthy and delicious dishes, ensure a satisfying dining 
+            experience for all. We deliver exceptional hospitality to every guest 
+            throughout their stay, creating cherished memories that last a lifetime.
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"></div>
+                <span class="feature-text">Tranquil Location</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"></div>
+                <span class="feature-text">Culinary Delights</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"></div>
+                <span class="feature-text">Comfortable Accommodation</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"></div>
+                <span class="feature-text">Night time Charm</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"></div>
+                <span class="feature-text">Proximity to Adventure</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"></div>
+                <span class="feature-text">Exceptional Hospitality</span>
+            </div>
+        </div>
+        
+        <button class="cta-button">Book now</button>
+    </div>
+</section>
+
+<!-- Offerings Section -->
+<section class="offerings-section">
+    <div class="offerings-container">
+        <div class="content-side">
+            <h2 class="section-title">
+                Our Offerings
+                <span class="icon">🌸</span>
+            </h2>
+            
+            <p class="section-description">
+                Experience the perfect blend of comfort and nature with our thoughtfully designed accommodations and activities.
+            </p>
+
+            <ul class="offerings-list">
+                <li class="offering-item">
+                    <div class="bullet"></div>
+                    <span class="offering-text">Eco-friendly bamboo cottages with scenic mountain views</span>
+                </li>
+                <li class="offering-item">
+                    <div class="bullet"></div>
+                    <span class="offering-text">Locally inspired bamboo-crafted interiors and exteriors</span>
+                </li>
+                <li class="offering-item">
+                    <div class="bullet"></div>
+                    <span class="offering-text">Private space for families and couples</span>
+                </li>
+                <li class="offering-item">
+                    <div class="bullet"></div>
+                    <span class="offering-text">Campfire zones and open yoga decks</span>
+                </li>
+                <li class="offering-item">
+                    <div class="bullet"></div>
+                    <span class="offering-text">Multi-cuisine restaurant with bamboo cutlery</span>
+                </li>
+                <li class="offering-item">
+                    <div class="bullet"></div>
+                    <span class="offering-text">Nature trails and guided forest walks</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="image-side">
+            <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2049&q=80" 
+                 alt="Luxury bamboo eco-resort with pool" 
+                 class="main-image">
+        </div>
+    </div>
+</section>
+
+<!-- Attractions Section -->
+<section class="attractions-section">
+    <div class="attractions-container">
+        <div class="section-header">
+            <h2 class="section-title">
+                Nearby Attractions in Wayanad
+                <span>🏔️</span>
+            </h2>
+            <p class="section-subtitle">
+                Discover breathtaking natural wonders and ancient heritage sites just minutes away from our resort. Each destination offers unique experiences for adventure seekers and nature lovers.
+            </p>
+        </div>
+
+        <div class="attractions-grid">
+            <div class="attraction-card">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Chembra Peak" class="card-image">
+                <div class="card-badge">Trekking</div>
+                <div class="card-content">
+                    <h3 class="card-title">Chembra Peak</h3>
+                    <p class="card-description">
+                        Wayanad's highest point, ideal for trekking with a heart-shaped lake at the top. Experience panoramic views of the Western Ghats.
+                    </p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <span>8 km away</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">⏱️</span>
+                            <span>4-5 hours</span>
+                        </div>
+                    </div>
+                    <button class="card-button">Plan Your Trek</button>
+                </div>
+            </div>
+
+            <div class="attraction-card">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Edakkal Caves" class="card-image">
+                <div class="card-badge">Heritage</div>
+                <div class="card-content">
+                    <h3 class="card-title">Edakkal Caves</h3>
+                    <p class="card-description">
+                        Explore ancient rock carvings dating back to the Neolithic age. A fascinating journey through prehistoric art and history.
+                    </p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <span>12 km away</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">⏱️</span>
+                            <span>2-3 hours</span>
+                        </div>
+                    </div>
+                    <button class="card-button">Explore History</button>
+                </div>
+            </div>
+
+            <div class="attraction-card">
+                <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Soochipara Waterfalls" class="card-image">
+                <div class="card-badge">Adventure</div>
+                <div class="card-content">
+                    <h3 class="card-title">Soochipara Waterfalls</h3>
+                    <p class="card-description">
+                        A stunning three-tiered waterfall perfect for adventure and photography. Enjoy rock climbing and natural pool swimming.
+                    </p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <span>15 km away</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">⏱️</span>
+                            <span>3-4 hours</span>
+                        </div>
+                    </div>
+                    <button class="card-button">Adventure Awaits</button>
+                </div>
+            </div>
+
+            <div class="attraction-card">
+                <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Banasura Sagar Dam" class="card-image">
+                <div class="card-badge">Sightseeing</div>
+                <div class="card-content">
+                    <h3 class="card-title">Banasura Sagar Dam</h3>
+                    <p class="card-description">
+                        India's largest earth dam offering boating, trekking, and stunning valley views. Perfect for family outings .
+                    </p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <span>20 km away</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">⏱️</span>
+                            <span>2-3 hours</span>
+                        </div>
+                    </div>
+                    <button class="card-button">Visit Dam</button>
+                </div>
+            </div>
+
+            <div class="attraction-card">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Wayanad Wildlife Sanctuary" class="card-image">
+                <div class="card-badge">Wildlife</div>
+                <div class="card-content">
+                    <h3 class="card-title">Wildlife Sanctuary</h3>
+                    <p class="card-description">
+                        Home to elephants, tigers, and diverse flora. Experience guided safaris and bird watching in pristine natural habitat.
+                    </p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <span>25 km away</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">⏱️</span>
+                            <span>Half day</span>
+                        </div>
+                    </div>
+                    <button class="card-button">Book Safari</button>
+                </div>
+            </div>
+
+            <div class="attraction-card">
+                <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Spice Plantations" class="card-image">
+                <div class="card-badge">Culture</div>
+                <div class="card-content">
+                    <h3 class="card-title">Spice Plantations</h3>
+                    <p class="card-description">
+                        Guided tours through aromatic spice gardens showcasing cardamom, pepper, and vanilla. Learn about traditional farming.
+                    </p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <span>10 km away</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">⏱️</span>
+                            <span>2 hours</span>
+                        </div>
+                    </div>
+                    <button class="card-button">Tour Plantation</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3 class="cta-title">Ready for Your Wayanad Adventure </h3>
+            <p class="cta-text">
+                Book your stay at Bali Bamboo Resort and experience the perfect blend of nature, comfort, and adventure. Our team is ready to help you plan an unforgettable getaway.
+            </p>
+            <a href="{% url 'contact' %}">
+                <button class="cta-button">Contact Us </button>
+            </a>
+        </div>
+    </div>
+</section>
+  {% include 'footer.html' %}
 
 </body>
 </html>

@@ -21,6 +21,7 @@
             text-align: center;
             color: white;
             position: relative;
+            height: 700px;
         }
 
         .hero-properties::before {
@@ -131,6 +132,198 @@
                 font-size: 2rem;
             }
         }
+         /* new aninities */
+            /* new aninities */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+        .advantages-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            color: #333;
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .advantage-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background-color:  #019174;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+        }
+
+        .icon {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        .advantage-title {
+            color: #333;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .advantage-description {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+            max-width: 250px;
+        }
+
+        @media (max-width: 1024px) {
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .advantages-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
+                gap: 40px;
+            }
+        }
+
+        .stats-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #4A90E2 0%, #c55b19 100%);
+            border-radius: 20px;
+            padding: 50px 30px;
+            text-align: center;
+            color: white;
+            flex: 1;
+            max-width: 320px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .stat-description {
+            font-size: 16px;
+            line-height: 1.5;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .stat-card {
+                max-width: 100%;
+                padding: 40px 25px;
+            }
+
+            .stat-number {
+                font-size: 40px;
+            }
+
+            .stat-description {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 40px 15px;
+            }
+
+            .stat-card {
+                padding: 35px 20px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+        }
+
+
+        /* room interior */
+        
     </style>
 </head>
 <body>
@@ -212,15 +405,17 @@
                 <p>All meals served in bamboo plates, cups, bowls, and banana leaves with bamboo cutlery.</p>
             </div>
         </div>
+        <div class="property-card">
+            <img src="{% static 'photo/dinning.jpg' %}" alt="Dining Items">
+            <div class="property-card-content">
+                <h3>Eco Bamboo Dining Items</h3>
+                <p>All meals served in bamboo plates, cups, bowls, and banana leaves with bamboo cutlery.</p>
+            </div>
+        </div>
     </div>
 </div>
 
 <!-- Resort Video Section -->
-<div class="video-section">
-    <h2>Discover the Bamboo Experience</h2>
-    <video src="{% static 'video/video.mp4' %}" controls autoplay muted loop></video>
-
-</div>
 
 <!-- Image Modal -->
 <div id="imageModal">
@@ -229,6 +424,89 @@
 </div>
 
 <div style="height: 50px;"></div>  <!-- Space before footer -->
+
+
+ <div class="advantages-section">
+        <div class="section-header">
+            <p class="section-subtitle"></p>
+            <h2 class="section-title">Advantages of our<br>resort</h2>
+        </div>
+
+        <div class="advantages-grid">
+            <div class="advantage-item">
+                <div class="icon-container">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                </div>
+                <h3 class="advantage-title">Warm towels</h3>
+                <p class="advantage-description">Sample text. Click to select the Text Element.</p>
+            </div>
+
+            <div class="advantage-item">
+                <div class="icon-container">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.20-1.10-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/>
+                    </svg>
+                </div>
+                <h3 class="advantage-title">Restaurant</h3>
+                <p class="advantage-description">Sample text. Click to select the Text Element.</p>
+            </div>
+
+            <div class="advantage-item">
+                <div class="icon-container">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <h3 class="advantage-title">Prepared for you</h3>
+                <p class="advantage-description">Sample text. Click to select the Text Element.</p>
+            </div>
+
+            <div class="advantage-item">
+                <div class="icon-container">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <h3 class="advantage-title">In-room buffet</h3>
+                <p class="advantage-description">Sample text. Click to select the Text Element.</p>
+            </div>
+
+            <div class="advantage-item">
+                <div class="icon-container">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z"/>
+                    </svg>
+                </div>
+                <h3 class="advantage-title">Gym</h3>
+                <p class="advantage-description">Sample text. Click to select the Text Element.</p>
+            </div>
+
+            <div class="advantage-item">
+                <div class="icon-container">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM8.5 16L12 13.5 15.5 16 12 18.5 8.5 16z"/>
+                    </svg>
+                </div>
+                <h3 class="advantage-title">Porter</h3>
+                <p class="advantage-description">Sample text. Click to select the Text Element.</p>
+            </div>
+        </div>
+    </div>8
+
+
+
+<div class="video-section">
+    <h2>Discover the Bamboo Experience</h2>
+    <video src="{% static 'video/video.mp4' %}" controls autoplay muted loop></video>
+
+</div>
+
+
+
+
+
 
 {% include 'footer.html' %}
 

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resort Adventure Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .banner-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            background: #fff;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slides-container {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide {
+            width: 20%;
+            height: 100%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Mountain Adventure Slide */
+        .slide-1 {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.3) 0%, rgba(160, 82, 45, 0.5) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2387CEEB;stop-opacity:1" /><stop offset="100%" style="stop-color:%23E0F6FF;stop-opacity:1" /></linearGradient></defs><rect width="800" height="300" fill="url(%23sky)"/><polygon points="0,300 150,80 300,150 450,60 600,120 750,90 800,180 800,500 0,500" fill="%23654321"/><polygon points="0,500 100,250 250,280 400,200 550,240 700,210 800,280 800,500" fill="%238B4513"/><polygon points="200,500 200,350 250,320 300,350 300,500" fill="%23A0522D"/><circle cx="650" cy="100" r="40" fill="%23FFD700" opacity="0.8"/></svg>');
+        }
+
+        /* Tropical Beach Slide */
+        .slide-2 {
+            background: linear-gradient(135deg, rgba(32, 178, 170, 0.2) 0%, rgba(70, 130, 180, 0.4) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><defs><linearGradient id="ocean" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2387CEEB;stop-opacity:1" /><stop offset="100%" style="stop-color:%23006994;stop-opacity:1" /></linearGradient></defs><rect width="800" height="350" fill="url(%23ocean)"/><ellipse cx="400" cy="350" rx="400" ry="50" fill="%23F0E68C"/><rect y="350" width="800" height="150" fill="%23F0E68C"/><ellipse cx="150" cy="250" rx="60" ry="120" fill="%23228B22"/><rect x="140" y="320" width="20" height="80" fill="%238B4513"/><ellipse cx="650" cy="280" rx="40" ry="80" fill="%23228B22"/><rect x="645" y="330" width="15" height="70" fill="%238B4513"/><circle cx="100" cy="80" r="35" fill="%23FFD700"/><path d="M 50,350 Q 150,330 250,350 Q 350,370 450,350 Q 550,330 650,350 Q 750,370 800,350" stroke="%23FFFFFF" stroke-width="3" fill="none" opacity="0.7"/></svg>');
+        }
+
+        /* Resort Buildings Slide */
+        .slide-3 {
+            background: linear-gradient(135deg, rgba(245, 245, 220, 0.3) 0%, rgba(210, 180, 140, 0.5) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="200" fill="%2387CEEB"/><rect y="200" width="800" height="300" fill="%23228B22"/><rect x="100" y="120" width="120" height="180" fill="%23F5DEB3"/><polygon points="100,120 160,80 220,120" fill="%238B4513"/><rect x="300" y="100" width="150" height="200" fill="%23DEB887"/><polygon points="300,100 375,60 450,100" fill="%23A0522D"/><rect x="500" y="140" width="100" height="160" fill="%23D2B48C"/><rect x="120" y="140" width="15" height="20" fill="%23FFD700"/><rect x="150" y="140" width="15" height="20" fill="%23FFD700"/><rect x="180" y="140" width="15" height="20" fill="%23FFD700"/><rect x="120" y="180" width="15" height="20" fill="%23FFD700"/><rect x="150" y="180" width="15" height="20" fill="%23FFD700"/><rect x="180" y="180" width="15" height="20" fill="%23FFD700"/><rect x="320" y="130" width="20" height="25" fill="%23FFD700"/><rect x="360" y="130" width="20" height="25" fill="%23FFD700"/><rect x="400" y="130" width="20" height="25" fill="%23FFD700"/><rect x="320" y="170" width="20" height="25" fill="%23FFD700"/><rect x="360" y="170" width="20" height="25" fill="%23FFD700"/><rect x="400" y="170" width="20" height="25" fill="%23FFD700"/></svg>');
+        }
+
+        /* Modern Luxury Slide */
+        .slide-4 {
+            background: linear-gradient(135deg, rgba(47, 79, 79, 0.4) 0%, rgba(70, 130, 180, 0.3) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><defs><linearGradient id="modernsky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%234682B4;stop-opacity:1" /><stop offset="100%" style="stop-color:%23B0C4DE;stop-opacity:1" /></linearGradient></defs><rect width="800" height="250" fill="url(%23modernsky)"/><rect y="250" width="800" height="250" fill="%23708090"/><rect x="150" y="150" width="100" height="200" fill="%23778899"/><rect x="300" y="120" width="80" height="230" fill="%23696969"/><rect x="450" y="180" width="120" height="170" fill="%232F4F4F"/><rect x="650" y="200" width="90" height="150" fill="%23708090"/><rect x="160" y="170" width="12" height="15" fill="%23FFD700"/><rect x="180" y="170" width="12" height="15" fill="%23FFD700"/><rect x="200" y="170" width="12" height="15" fill="%23FFD700"/><rect x="220" y="170" width="12" height="15" fill="%23FFD700"/><rect x="160" y="200" width="12" height="15" fill="%23FFD700"/><rect x="180" y="200" width="12" height="15" fill="%23FFD700"/><rect x="200" y="200" width="12" height="15" fill="%23FFD700"/><rect x="220" y="200" width="12" height="15" fill="%23FFD700"/><rect x="310" y="140" width="10" height="12" fill="%23FFD700"/><rect x="330" y="140" width="10" height="12" fill="%23FFD700"/><rect x="350" y="140" width="10" height="12" fill="%23FFD700"/><rect x="310" y="165" width="10" height="12" fill="%23FFD700"/><rect x="330" y="165" width="10" height="12" fill="%23FFD700"/><rect x="350" y="165" width="10" height="12" fill="%23FFD700"/></svg>');
+        }
+
+        /* Spa/Wellness Slide */
+        .slide-5 {
+            background: linear-gradient(135deg, rgba(186, 85, 211, 0.3) 0%, rgba(147, 112, 219, 0.4) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><defs><linearGradient id="sunset" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%23FF6347;stop-opacity:1" /><stop offset="50%" style="stop-color:%23FF8C00;stop-opacity:1" /><stop offset="100%" style="stop-color:%23FFD700;stop-opacity:1" /></linearGradient></defs><rect width="800" height="300" fill="url(%23sunset)"/><rect y="300" width="800" height="200" fill="%23228B22"/><ellipse cx="600" cy="100" rx="80" ry="80" fill="%23FF4500" opacity="0.8"/><rect x="200" y="220" width="180" height="120" fill="%23F5DEB3" rx="10"/><polygon points="200,220 290,180 380,220" fill="%23D2691E"/><rect x="450" y="240" width="120" height="100" fill="%23DEB887" rx="8"/><ellipse cx="100" cy="320" rx="50" ry="30" fill="%234682B4" opacity="0.6"/><ellipse cx="650" cy="350" rx="60" ry="25" fill="%234682B4" opacity="0.6"/><rect x="220" y="250" width="12" height="15" fill="%23FFD700"/><rect x="240" y="250" width="12" height="15" fill="%23FFD700"/><rect x="260" y="250" width="12" height="15" fill="%23FFD700"/><rect x="470" y="260" width="10" height="12" fill="%23FFD700"/><rect x="490" y="260" width="10" height="12" fill="%23FFD700"/><rect x="510" y="260" width="10" height="12" fill="%23FFD700"/></svg>');
+        }
+
+        .title-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .title-text {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+        }
+
+        .title-text h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #2E8B57;
+            line-height: 1.2;
+            margin: 0;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .navigation-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 55px;
+            height: 55px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 15;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .navigation-arrows:hover {
+            background: rgba(255,255,255,1);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .nav-left {
+            left: 25px;
+        }
+
+        .nav-right {
+            right: 25px;
+        }
+
+        .arrow {
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .arrow-left {
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 15px solid #2E8B57;
+        }
+
+        .arrow-right {
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 15px solid #2E8B57;
+        }
+
+        /* Slide indicators */
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 15;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #2E8B57;
+            transform: scale(1.2);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .title-text h1 {
+                font-size: 2rem;
+            }
+            
+            .banner-container {
+                height: 400px;
+            }
+
+            .title-text {
+                padding: 25px;
+                margin: 20px;
+            }
+
+            .navigation-arrows {
+                width: 45px;
+                height: 45px;
+            }
+
+            .nav-left {
+                left: 15px;
+            }
+
+            .nav-right {
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .navigation-arrows {
+                width: 40px;
+                height: 40px;
+            }
+
+            .arrow-left {
+                border-right-width: 12px;
+                border-top-width: 8px;
+                border-bottom-width: 8px;
+            }
+
+            .arrow-right {
+                border-left-width: 12px;
+                border-top-width: 8px;
+                border-bottom-width: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <div class="slider-wrapper">
+            <div class="slides-container" id="slidesContainer">
+                <div class="slide slide-1"></div>
+                <div class="slide slide-2"></div>
+                <div class="slide slide-3"></div>
+                <div class="slide slide-4"></div>
+                <div class="slide slide-5"></div>
+            </div>
+        </div>
+        
+        <div class="title-overlay">
+            <div class="title-text">
+                <h1>DISCOVER ADVENTURE NEARBY,<br>ALL WITHIN REACH OF OUR<br>RESORT</h1>
+            </div>
+        </div>
+        
+        <div class="navigation-arrows nav-left" onclick="previousSlide()">
+            <div class="arrow arrow-left"></div>
+        </div>
+        
+        <div class="navigation-arrows nav-right" onclick="nextSlide()">
+            <div class="arrow arrow-right"></div>
+        </div>
+
+        <div class="slide-indicators">
+            <div class="indicator active" onclick="goToSlide(0)"></div>
+            <div class="indicator" onclick="goToSlide(1)"></div>
+            <div class="indicator" onclick="goToSlide(2)"></div>
+            <div class="indicator" onclick="goToSlide(3)"></div>
+            <div class="indicator" onclick="goToSlide(4)"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 5;
+        const slidesContainer = document.getElementById('slidesContainer');
+        const indicators = document.querySelectorAll('.indicator');
+        let autoSlideInterval;
+
+        function updateSlider() {
+            const translateX = -currentSlide * 20; // 20% for each slide
+            slidesContainer.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+            resetAutoSlide();
+        }
+
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+            resetAutoSlide();
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlider();
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                nextSlide();
+            }, 4000); // Change slide every 4 seconds
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Initialize auto-slide
+        startAutoSlide();
+
+        // Pause auto-slide on hover
+        const bannerContainer = document.querySelector('.banner-container');
+        bannerContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        bannerContainer.addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+    </script>
+</body>
+</html>
