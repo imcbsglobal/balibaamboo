@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ─── SECURITY ───────────────────────────────────────────────────
 SECRET_KEY = 'your-secret-key'  # Replace with your real secret key
 DEBUG = True
-ALLOWED_HOSTS = ['192.168.1.44', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.1.44', 'localhost', '127.0.0.1','balibamboo.in','www.balibamboo.in']
 
 # ─── APPLICATIONS ───────────────────────────────────────────────
 INSTALLED_APPS = [
