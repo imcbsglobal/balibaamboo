@@ -1,35 +1,83 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Navbar</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Poppins', sans-serif;
-      background: url('{% static "photo/background.jpg" %}') no-repeat center center fixed;
-      background-size: cover;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
     }
 
     .top-bar {
       backdrop-filter: blur(10px);
-      background-color: white;
-      /* color: #2d3436; */
+      background-color: rgba(255, 255, 255, 0.95);
       padding: 8px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      /* border-bottom: 1px solid #ccc; */
       font-size: 0.95rem;
     }
 
-    .top-left {
+    .left-space {
+      flex: 1;
+    }
+
+    .top-contact {
       display: flex;
       align-items: center;
+      gap: 20px;
+      flex: 5;
+      justify-content: flex-end;
+    }
+
+    .top-contact span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #333;
+    }
+
+    .top-contact i {
+      color: #019174;
+    }
+
+    .social-icons {
+      display: flex;
       gap: 15px;
+      justify-content: flex-end;
+      flex: 1;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-icons i {
+      background-color: #019174;
+      padding: 8px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover i {
+      background-color: #00b894;
+      transform: scale(1.1);
     }
 
     .navbar {
@@ -37,38 +85,45 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(10px);
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.95);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2px 40px;
-      
-      /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
-      /* border-bottom: 1px solid rgba(255, 255, 255, 0.3); */
+      padding: 10px 40px;
+      transition: all 0.3s ease;
     }
 
     .navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0); /* semi-transparent */
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
 
     .logo-div {
       display: flex;
       align-items: center;
+      flex-shrink: 0;
     }
 
     .logo-div img {
-      width: 170px;
-      height: 100px;
+      width: 220px;
+      height: 90px;
+      object-fit: contain;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 35px;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
     }
 
     .nav-links {
       display: flex;
       gap: 35px;
+      align-items: center;
     }
 
-    /* Updated navbar link styles - no background, only color change */
     .navbar .nav-links a {
       text-decoration: none;
       color: #00b894;
@@ -80,29 +135,32 @@
       position: relative;
     }
 
-    /* Hover state - only color change */
     .navbar .nav-links a:hover {
       color: #019174;
       transform: translateY(-2px);
     }
 
-    /* Active state - different color, no background */
     .navbar .nav-links a.active {
       color: #000000 !important;
       font-weight: 600;
     }
 
-    /* Active hover state */
     .navbar .nav-links a.active:hover {
       color: #333333 !important;
       transform: translateY(-1px);
     }
 
+    .book-now-container {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
     .book-now {
       background-color: #00b894;
       color: white;
-      padding: 10px 18px;
-      border-radius: 5px;
+      padding: 12px 24px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
@@ -114,162 +172,377 @@
       box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
     }
 
-    /* Mobile responsiveness */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .hamburger:hover {
+      background-color: rgba(0, 184, 148, 0.1);
+    }
+
+    .hamburger i {
+      font-size: 1.5rem;
+      color: #00b894;
+    }
+
+    /* Mobile Styles */
     @media (max-width: 768px) {
-      .navbar {
-        padding: 5px 20px;
+      .top-bar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+        text-align: center;
       }
-      
-      .nav-links {
+
+      .top-contact {
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .top-contact span {
+        font-size: 0.9rem;
+        gap: 4px;
+      }
+
+      .social-icons {
+        justify-content: center;
         gap: 20px;
       }
-      
-      .navbar .nav-links a {
-        font-size: 0.9rem;
-        padding: 6px 12px;
+
+      .navbar {
+        padding: 10px 20px;
+        position: relative;
       }
-      
-      .top-bar {
-        padding: 4px 20px;
-        font-size: 0.85rem;
+
+      /* Keep nav-center visible but modify its behavior */
+      .nav-center {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        display: none;
+        /* Hidden by default on mobile */
+        z-index: 999;
       }
-      
-      .top-left {
-        gap: 10px;
+
+      .nav-center.active {
+        display: flex;
+        /* Show when active */
+      }
+
+      .book-now-container {
+        display: none;
+      }
+
+      .logo-div img {
+        width: 150px;
+        height: 60px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 0;
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      .nav-links a {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 184, 148, 0.1);
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+
+      .book-now {
+        margin: 20px 30px 0 30px;
+        text-align: center;
+        padding: 15px;
+        font-size: 1.1rem;
       }
     }
 
+    @media (max-width: 480px) {
+      .top-bar {
+        padding: 10px 15px;
+      }
+
+      .navbar {
+        padding: 8px 15px;
+      }
+
+      .top-contact {
+        gap: 8px;
+      }
+
+      .top-contact span {
+        font-size: 0.8rem;
+        gap: 3px;
+      }
+
+      .logo-div img {
+        width: 120px;
+        height: 50px;
+      }
+    }
+
+    /* Tablet responsiveness */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .navbar {
+        padding: 10px 30px;
+      }
+
+      .nav-links {
+        gap: 25px;
+      }
+
+      .navbar .nav-links a {
+        font-size: 0.95rem;
+        padding: 6px 12px;
+      }
+
+      .logo-div img {
+        width: 180px;
+        height: 75px;
+      }
+    }
+
+    /* Content below navbar for demonstration */
+    .content {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .content h1 {
+      color: white;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #00b894;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #019174;
+      transform: translateY(-2px);
+    }
+
+    .nav-link.active {
+      color: #000000 !important;
+      font-weight: 600;
+    }
+
+
 
     /*  */
-    .top-bar {
-  display: flex;
-  align-items: center;
-  padding: 4px 40px;
-  background-color: white;
-  font-size: 0.95rem;
-  /* border-bottom: 1px solid #ccc; */
-  position: relative;
+    @media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  .top-contact {
+    display: none; /* This will hide the contact info on mobile */
+  }
+
+  .social-icons {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  /* Rest of your mobile styles... */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+    text-align: center;
+    display: none;
+  }
+
+  /* Hide contact info and social icons on mobile */
+  .top-contact, .social-icons {
+    display: none;
+  }
+
+  /* Rest of your existing mobile styles... */
+  .navbar {
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  /* ... other mobile styles remain the same ... */
+}
+  
+  /* Rest of your mobile styles... */
+}
+/* Mobile Styles */
+@media (max-width: 768px) {
+  /* Increased logo size for mobile */
+  .logo-div img {
+    width: 180px;
+    height: 75px;
+  }
 }
 
-.left-space {
-  flex: 2;
+@media (max-width: 480px) {
+  /* Increased logo size for smaller mobile screens */
+  .logo-div img {
+    width: 160px;
+    height: 65px;
+  }
 }
-
-.center-contact {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  justify-content: flex-start;
-  flex: 2.5; /* Increased to shift it right */
-  margin-left: 50px; /* Shift the contact details more to the right */
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-  justify-content: flex-end;
-  flex: 1;
-}
-
-.social-icons a {
-  color: #000000;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-  text-decoration: none;
-}
-
-.social-icons a:hover {
-  color: #019174;
-}
-.social-icons {
-  display: flex;
-  gap: 10px; /* Increased from 15px to 30px */
-  justify-content: flex-end;
-  flex: 1;
-}
-.center-contact {
-  display: flex;
-  align-items: center;
-  gap: 60px; /* Increased spacing between items */
-  justify-content: flex-start;
-  flex: 2.5;
-  margin-left: 50px;
-}
-.center-contact span {
-  margin-right: 40px;
-}
-.top-left.center-contact span {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* This creates space between all child elements */
-}
-top-left-contact{
-  display: flex;
-  gap: 30px; /* Increased from 15px to 30px */
-  justify-content: flex-end;
-  flex: 1;
-}
-.center-contact i {
-  margin-right: 10px; /* You can increase this to 12px, 15px etc. */
-}
-
   </style>
 </head>
+
 <body>
 
   <!-- Top Bar -->
   <div class="top-bar">
-  <!-- Left: Can stay empty or hold a logo later -->
-  <div class="left-space"></div>
+    <div class="left-space"></div>
 
-  <!-- Center-ish: Contact Details -->
-<div class="top-left-contact" style="margin-left: 800px; padding: 1px; display: flex; gap: 20px; align-items: center;">
-<span><i class="fa-solid fa-location-dot" style="color: #019174;"></i> Wayanad</span>
-<span><i class="fa-solid fa-phone" style="color: #019174;"></i> +91 12345 67890</span>
-<span><i class="fa-solid fa-envelope" style="color: #019174;"></i> example@gmail.com</span>
+    <div class="top-contact">
+      <span class="desktop-only"><i class="fa-solid fa-location-dot"></i> Wayanad</span>
+      <span class="mobile-only"><i class="fa-solid fa-phone"></i> +91 12345 67890</span>
+      <span class="desktop-only"><i class="fa-solid fa-phone"></i> +91 12345 67890</span>
+      <span class="desktop-only"><i class="fa-solid fa-envelope"></i> example@gmail.com</span>
+    </div>
 
-</div>
-
-
-  <!-- Right: Social Media Icons -->
-  <div class="social-icons">
-    <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook" style="background-color: #019174; padding: 8px; color: #fff; border-radius: 80%;"></i></a>
-    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram" style="background-color: #019174; padding: 8px; color: #fff; border-radius: 80%; "></i></a>
-    <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter" style="background-color: #019174; padding: 8px; color: #fff; border-radius: 80%;"></i></a>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+    </div>
   </div>
-</div>
-
 
   <!-- Sticky Navbar -->
   <div class="navbar">
-    <!-- Logo -->
     <div class="logo-div">
-      <img src="{% static 'photo/logo1.png' %}" alt="Bali Bamboo Resort Logo" />
+      <img src="{% static 'photo/logo1.png' %}" alt="Resort Logo" />
     </div>
 
-    <!-- Nav Links with corrected active class logic -->
-    <div class="nav-links">
-      <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
-      <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
-      <a href="{% url 'rooms' %}" class="{% if request.resolver_match.url_name == 'rooms' %}active{% endif %}">Rooms & Suites</a>
-      <a href="{% url 'properties' %}" class="{% if request.resolver_match.url_name == 'properties' %}active{% endif %}">Properties</a>
-      <a href="{% url 'gallery' %}" class="{% if request.resolver_match.url_name == 'gallery' %}active{% endif %}">Gallery</a>
-      <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+    <div class="nav-center" id="navCenter">
+      <div class="nav-links" id="navLinks">
+        <a href="{% url 'home' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="{% url 'about' %}" class="nav-link {% if request.path == '/about/' %}active{% endif %}">About</a>
+        <a href="{% url 'rooms' %}" class="nav-link {% if request.path == '/rooms/' %}active{% endif %}">Rooms &
+          Suites</a>
+        <a href="{% url 'properties' %}"
+          class="nav-link {% if request.path == '/properties/' %}active{% endif %}">Properties</a>
+        <a href="{% url 'gallery' %}" class="nav-link {% if request.path == '/gallery/' %}active{% endif %}">Gallery</a>
+        <a href="{% url 'contact' %}" class="nav-link {% if request.path == '/contact/' %}active{% endif %}">Contact</a>
+      </div>
     </div>
 
-    <!-- Book Now Button: Opens WhatsApp Chat -->
-    <a href="https://wa.me/911234567890" target="_blank" class="book-now" rel="noopener noreferrer">Book Now</a>
+    <div class="book-now-container">
+      <a href="https://wa.me/911234567890" target="_blank" class="book-now" style="color: white;">Book Now</a>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
   </div>
-<script>
-  window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 10) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+
+  <!-- Demo Content -->
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle function
+    function toggleMenu() {
+      const navCenter = document.getElementById('navCenter');
+      const hamburger = document.querySelector('.hamburger i');
+
+      navCenter.classList.toggle('active');
+
+      // Toggle hamburger icon
+      if (navCenter.classList.contains('active')) {
+        hamburger.classList.remove('fa-bars');
+        hamburger.classList.add('fa-times');
+      } else {
+        hamburger.classList.remove('fa-times');
+        hamburger.classList.add('fa-bars');
+      }
     }
-  });
-</script>
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        const navCenter = document.getElementById('navCenter');
+        const hamburger = document.querySelector('.hamburger i');
+
+        if (navCenter.classList.contains('active')) {
+          navCenter.classList.remove('active');
+          hamburger.classList.remove('fa-times');
+          hamburger.classList.add('fa-bars');
+        }
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function (event) {
+      const navCenter = document.getElementById('navCenter');
+      const hamburger = document.querySelector('.hamburger');
+      const navbar = document.querySelector('.navbar');
+
+      if (!navbar.contains(event.target) && navCenter.classList.contains('active')) {
+        navCenter.classList.remove('active');
+        document.querySelector('.hamburger i').classList.remove('fa-times');
+        document.querySelector('.hamburger i').classList.add('fa-bars');
+      }
+    });
+  </script>
 
 </body>
+
 </html>

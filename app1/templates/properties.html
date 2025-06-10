@@ -13,7 +13,8 @@
         }
 
         .hero-properties {
-            background: url("{% static 'photo/pic.jpg' %}") no-repeat center center/cover;
+            background: url("{% static 'photo/pro.jpg' %}") no-repeat center center/cover; 
+           
             height: 60vh;
             display: flex;
             align-items: center;
@@ -322,7 +323,17 @@
         }
 
 
-        /* room interior */
+       @media (max-width: 700px) {
+  .hero-properties {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    height: 83vh;
+  }
+}
         
     </style>
 </head>
@@ -342,7 +353,8 @@
     <div class="property-grid">
         <!-- Existing Rooms -->
         <div class="property-card">
-            <img src="{% static 'photo/treehouse.jpg' %}" alt="Treehouse">
+             <img src="{% static 'photo/treehouse.jpg' %}" alt="Treehouse"> 
+        
             <div class="property-card-content">
                 <h3>Bamboo Treehouse</h3>
                 <p>Perched above lush greenery, this cozy escape offers breathtaking views and ultimate serenity.</p>
@@ -405,12 +417,14 @@
                 <p>All meals served in bamboo plates, cups, bowls, and banana leaves with bamboo cutlery.</p>
             </div>
         </div>
-        <div class="property-card">
-            <img src="{% static 'photo/dinning.jpg' %}" alt="Dining Items">
-            <div class="property-card-content">
-                <h3>Eco Bamboo Dining Items</h3>
-                <p>All meals served in bamboo plates, cups, bowls, and banana leaves with bamboo cutlery.</p>
-            </div>
+        <div class="property-card">             
+    <img src="https://img.freepik.com/premium-photo/woman-looking-camera-while-sitting-by-tree_1048944-22281162.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&w=740" alt="Sunset Spots">
+      </a>            
+    <div class="property-card-content">                 
+        <h3>High-Speed Wi-Fi & Business Center</h3>                 
+        <p>Stay connected with complimentary high-speed Wi-Fi throughout the resort. Our dedicated business lounge offers  a quiet spaces for remote work or video conferences.</p>             
+    </div>
+</div>
         </div>
     </div>
 </div>

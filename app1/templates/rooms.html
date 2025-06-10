@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Rooms - Bali Bamboo Resort</title>
@@ -56,7 +57,7 @@
     .room-card {
       background: white;
       border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       margin-bottom: 40px;
       display: flex;
@@ -67,7 +68,7 @@
 
     .room-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
     }
 
     .room-card::before {
@@ -229,7 +230,7 @@
       border-radius: 15px;
       padding: 40px;
       margin: 50px 0;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     }
 
     .comparison-table {
@@ -306,7 +307,7 @@
       border-radius: 15px;
       padding: 40px;
       margin: 50px 0;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     }
 
     .gallery-grid {
@@ -346,16 +347,17 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
       color: white;
       padding: 20px;
-      transform: translateY(0); /* Changed from translateY(100%) to translateY(0) */
+      transform: translateY(0);
+      /* Changed from translateY(100%) to translateY(0) */
       transition: all 0.3s ease;
     }
 
     /* Optional: Keep hover effect for enhanced visibility */
     .gallery-item:hover .gallery-overlay {
-      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
       padding: 25px 20px;
     }
 
@@ -407,7 +409,7 @@
     .hero-section {
       height: 85vh;
       background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                  url('https://avatars.mds.yandex.net/get-altay/1371846/2a00000166394089b7546837e5a17157251f/XXL') center/cover no-repeat;
+        url('https://avatars.mds.yandex.net/get-altay/1371846/2a00000166394089b7546837e5a17157251f/XXL') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -550,10 +552,13 @@
     }
 
     @keyframes float {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0px) rotate(0deg);
         opacity: 0.5;
       }
+
       50% {
         transform: translateY(-20px) rotate(180deg);
         opacity: 0.8;
@@ -564,12 +569,12 @@
       .main-heading {
         font-size: 2.5rem;
       }
-      
+
       .content-card {
         padding: 40px 30px;
         margin: 20px;
       }
-      
+
       .hero-section {
         height: 100vh;
       }
@@ -617,8 +622,105 @@
         grid-row: span 1;
       }
     }
+
+
+    /* whatsapp button */
+    .whatsapp-enquiry {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.whatsapp-button {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-button i {
+  margin-right: 8px;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe5d;
+}
+
+
+
+
+
+
+/* ////////// */
+
+/* Add this to your existing CSS - Mobile responsiveness fix */
+
+@media (max-width: 700px) {
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    height: 83vh;
+  }
+
+  .content-card {
+    /* Remove the left positioning for mobile */
+    left: 0 !important;
+    position: relative;
+    z-index: 2;
+    /* Center the card */
+    margin: 0 auto;
+    transform: none;
+    /* Adjust padding for mobile */
+    padding: 40px 30px;
+    /* Make it more mobile-friendly width */
+    max-width: 90%;
+    width: 90%;
+  }
+
+  .main-heading {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .cta-button {
+    margin-top: 20px;
+    margin-right: 50px;
+  }
+
+  .floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+  .content-card {
+    padding: 30px 20px;
+    max-width: 95%;
+    width: 95%;
+  }
+  
+  .main-heading {
+    font-size: 2rem;
+  }
+}
+
   </style>
 </head>
+
 <body>
 
   {% include 'navbar.html' %}
@@ -629,7 +731,7 @@
       <div class="floating-element"></div>
       <div class="floating-element"></div>
     </div>
-    
+
     <div class="content-card">
       <h1 class="main-heading">
         Your Dream<br>
@@ -650,51 +752,67 @@
     <div class="rooms-section">
       <div class="section-header">
         <h1>Our Premium Rooms</h1>
-        <p class="section-subtitle">Discover comfort and luxury in our thoughtfully designed accommodations, each offering a unique experience in harmony with nature.</p>
+        <p class="section-subtitle">Discover comfort and luxury in our thoughtfully designed accommodations, each
+          offering a unique experience in harmony with nature.</p>
       </div>
 
       <div class="room-card">
-        <div class="room-image">
-          <img src="{% static 'photo/delux.jpg' %}" alt="Deluxe Bamboo Cottage">
-          <div class="room-badge">Most Popular</div>
-        </div>
-        <div class="room-details">
-          <h3>Deluxe Bamboo Cottage</h3>
-          <p class="room-description">Experience ultimate luxury with nature's charm. This premium sanctuary features a <span class="highlight-text">king-sized bed</span> with premium linens, a <span class="highlight-text">modern ensuite bathroom</span> with rainfall shower, and a <span class="highlight-text">private balcony</span> offering breathtaking mountain views that will leave you speechless.</p>
-          
-          <div class="room-highlights">
-            <div class="highlight-item">
-              <div class="highlight-icon">🛏️</div>
-              <div class="highlight-content">
-                <h4>Luxurious Comfort</h4>
-                <p>King-sized bed with premium memory foam mattress and Egyptian cotton linens</p>
-              </div>
-            </div>
-            <div class="highlight-item">
-              <div class="highlight-icon">🏔️</div>
-              <div class="highlight-content">
-                <h4>Mountain Views</h4>
-                <p>Panoramic views of lush green mountains from your private balcony</p>
-              </div>
-            </div>
-            <div class="highlight-item">
-              <div class="highlight-icon">🚿</div>
-              <div class="highlight-content">
-                <h4>Modern Amenities</h4>
-                <p>Rainfall shower, modern fixtures, and complimentary luxury toiletries</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="room-features">
-            <span class="feature-tag">King Bed</span>
-            <span class="feature-tag">Mountain View</span>
-            <span class="feature-tag">Private Balcony</span>
-            <span class="feature-tag">Modern Bath</span>
-            <span class="feature-tag">Wi-Fi</span>
-          </div>
+  <div class="room-image">
+    <img src="{% static 'photo/delux.jpg' %}" alt="Deluxe Bamboo Cottage">
+    <div class="room-badge">Most Popular</div>
+  </div>
+
+  <div class="room-details">
+    <h3>Deluxe Bamboo Cottage</h3>
+    <p class="room-description">
+      Experience ultimate luxury with nature's charm. This premium sanctuary features a
+      <span class="highlight-text">king-sized bed</span> with premium linens, a
+      <span class="highlight-text">modern ensuite bathroom</span> with rainfall shower, and a
+      <span class="highlight-text">private balcony</span> offering breathtaking mountain views that will leave you speechless.
+    </p>
+
+    <div class="room-highlights">
+      <div class="highlight-item">
+        <div class="highlight-icon">🛏️</div>
+        <div class="highlight-content">
+          <h4>Luxurious Comfort</h4>
+          <p>King-sized bed with premium memory foam mattress and Egyptian cotton linens</p>
         </div>
       </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🏔️</div>
+        <div class="highlight-content">
+          <h4>Mountain Views</h4>
+          <p>Panoramic views of lush green mountains from your private balcony</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🚿</div>
+        <div class="highlight-content">
+          <h4>Modern Amenities</h4>
+          <p>Rainfall shower, modern fixtures, and complimentary luxury toiletries</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="room-features">
+      <span class="feature-tag">King Bed</span>
+      <span class="feature-tag">Mountain View</span>
+      <span class="feature-tag">Private Balcony</span>
+      <span class="feature-tag">Modern Bath</span>
+      <span class="feature-tag">Wi-Fi</span>
+    </div>
+
+    <!-- WhatsApp Enquiry Button -->
+    <div class="whatsapp-enquiry">
+      <a href="https://wa.me/918606361832?text=Hello%2C%20I%20am%20interested%20in%20booking%20the%20Deluxe%20Bamboo%20Cottage.%20Please%20provide%20more%20details."
+         target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i> Enquire on WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+>
 
       <div class="room-card">
         <div class="room-image">
@@ -703,8 +821,12 @@
         </div>
         <div class="room-details">
           <h3>Eco Bamboo Hut</h3>
-          <p class="room-description">Perfect for eco-conscious travelers seeking sustainable comfort. This unique retreat features <span class="highlight-text">authentic bamboo interiors</span>, an enchanting <span class="highlight-text">open-air shower</span> surrounded by tropical plants, and a <span class="highlight-text">serene natural ambiance</span> for ultimate relaxation and connection with nature.</p>
-          
+          <p class="room-description">Perfect for eco-conscious travelers seeking sustainable comfort. This unique
+            retreat features <span class="highlight-text">authentic bamboo interiors</span>, an enchanting <span
+              class="highlight-text">open-air shower</span> surrounded by tropical plants, and a <span
+              class="highlight-text">serene natural ambiance</span> for ultimate relaxation and connection with nature.
+          </p>
+
           <div class="room-highlights">
             <div class="highlight-item">
               <div class="highlight-icon">🌿</div>
@@ -728,7 +850,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="room-features">
             <span class="feature-tag">Eco Design</span>
             <span class="feature-tag">Open-Air Shower</span>
@@ -736,6 +858,12 @@
             <span class="feature-tag">Bamboo Interior</span>
             <span class="feature-tag">Nature Sounds</span>
           </div>
+          <div class="whatsapp-enquiry">
+      <a href="https://wa.me/918606361832?text=Hello%2C%20I%20am%20interested%20in%20booking%20the%20Deluxe%20Bamboo%20Cottage.%20Please%20provide%20more%20details."
+         target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i> Enquire on WhatsApp
+      </a>
+    </div>
         </div>
       </div>
 
@@ -746,8 +874,11 @@
         </div>
         <div class="room-details">
           <h3>Family Villa</h3>
-          <p class="room-description">Spacious and perfect for families or groups seeking comfort and convenience. This expansive villa includes <span class="highlight-text">two separate bedrooms</span>, a <span class="highlight-text">cozy living area</span> with entertainment center, and a <span class="highlight-text">fully equipped kitchen</span> for your home-away-from-home experience.</p>
-          
+          <p class="room-description">Spacious and perfect for families or groups seeking comfort and convenience. This
+            expansive villa includes <span class="highlight-text">two separate bedrooms</span>, a <span
+              class="highlight-text">cozy living area</span> with entertainment center, and a <span
+              class="highlight-text">fully equipped kitchen</span> for your home-away-from-home experience.</p>
+
           <div class="room-highlights">
             <div class="highlight-item">
               <div class="highlight-icon">🏠</div>
@@ -771,7 +902,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="room-features">
             <span class="feature-tag">2 Bedrooms</span>
             <span class="feature-tag">Living Area</span>
@@ -779,20 +910,27 @@
             <span class="feature-tag">Family Friendly</span>
             <span class="feature-tag">Extra Space</span>
           </div>
+          <div class="whatsapp-enquiry">
+      <a href="https://wa.me/918606361832?text=Hello%2C%20I%20am%20interested%20in%20booking%20the%20Deluxe%20Bamboo%20Cottage.%20Please%20provide%20more%20details."
+         target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i> Enquire on WhatsApp
+      </a>
+    </div>
         </div>
       </div>
 
-   
-              
-    
-          
-          
 
-      
+
+
+
+
+
+
     </div>
   </section>
 
   {% include 'footer.html' %}
 
 </body>
+
 </html>

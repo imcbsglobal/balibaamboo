@@ -52,7 +52,7 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(6, minmax(200px, 1fr));
             gap: 20px;
             padding: 40px;
         }
@@ -255,6 +255,19 @@
                 height: 80px;
             }
         }
+
+
+        @media (max-width: 700px) {
+  .gallery-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    height: 83vh;
+  }
+}
     </style>
 </head>
 
@@ -292,23 +305,22 @@
     </section>
 
     <div class="gallery-grid">
-        <img src="{% static 'photo/delux.jpg' %}" alt="Resort 1">
-        <img src="{% static 'photo/family.jpg' %}" alt="Resort 2">
-        <img src="{% static 'photo/s.jpg' %}" alt="Resort 3">
-        <img src="{% static 'photo/p.jpg' %}" alt="Resort 4">
-        <img src="{% static 'photo/t.jpg' %}" alt="Resort 5">
+       <img src="https://img.freepik.com/premium-photo/woman-standing-by-railing-bridge_1048944-3485204.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&w=740" alt="Sunset Spots">
+        <img src="https://img.freepik.com/free-photo/young-asian-woman-relax-forest-beautiful-female-happy-using-relax-time-nature_7861-1738.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&w=740" alt="Sunset Spots">
+         <img src="https://img.freepik.com/premium-photo/rear-view-man-standing-steps_1048944-24549617.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&w=740" alt="Sunset Spots">
+          <img src="https://img.freepik.com/free-photo/front-view-entrance-japanese-temple_23-2148809577.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Sunset Spots">
 
-        <img src="{% static 'photo/delux.jpg' %}" alt="Resort 1">
-        <img src="{% static 'photo/family.jpg' %}" alt="Resort 2">
-        <img src="{% static 'photo/s.jpg' %}" alt="Resort 3">
-        <img src="{% static 'photo/p.jpg' %}" alt="Resort 4">
-        <img src="{% static 'photo/t.jpg' %}" alt="Resort 5">
+           <img src="https://img.freepik.com/premium-photo/wooden-container-with-bunch-wooden-spoons-jar-nuts-it_1104772-3065.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Sunset Spots">
+            <img src="https://img.freepik.com/free-photo/young-woman-walking-bamboo-bridge_1150-14400.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Sunset Spots">
+             <img src="https://img.freepik.com/premium-photo/home-bamboo-forest-paradise-generative-ai_21085-47180.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Sunset Spots">
+              <img src="https://img.freepik.com/free-photo/wide-angle-shot-trees-nature-seen-from-building_181624-9470.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Sunset Spots">
+              <img src="https://img.freepik.com/premium-photo/close-up-low-angle-view-stairs_1048944-19067048.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Sunset Spots">
+              <img src="https://img.freepik.com/premium-photo/man-sits-bed-room-with-curtain-that-says-word_875037-8846.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Sunset Spots">
+              
+              <img src="https://img.freepik.com/premium-photo/bamboo-forest-small-diameter-light-up-kojo-castle-citizens-forest_1099000-9953.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Sunset Spots">
+              <img src="https://img.freepik.com/premium-photo/cambodian-version-lemongrass-beef-skewers-bo-xa-nuong-from-vietnam_1048944-1097209.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Sunset Spots">
 
-        <img src="{% static 'photo/delux.jpg' %}" alt="Resort 1">
-        <img src="{% static 'photo/family.jpg' %}" alt="Resort 2">
-        <img src="{% static 'photo/s.jpg' %}" alt="Resort 3">
-        <img src="{% static 'photo/p.jpg' %}" alt="Resort 4">
-        <img src="{% static 'photo/t.jpg' %}" alt="Resort 5">
+       
     </div>
 
     <!-- Image Modal -->

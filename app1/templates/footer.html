@@ -8,6 +8,105 @@
   <title>Footer with Background Image</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Responsive Styling -->
+  <style>
+    @media (max-width: 768px) {
+      footer div[style*="display: flex; flex-wrap: wrap;"] {
+        flex-direction: column !important;
+        gap: 10px !important;
+        padding: 20px !important;
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+      }
+
+      footer div[style*="text-align: center; margin-bottom: 20px;"] {
+        padding: 0 10px;
+      }
+
+      footer div[style*="flex: 1; min-width: 220px"],
+      footer div[style*="flex: 1; min-width: 200px"] {
+        text-align: center !important;
+      }
+
+      footer div[style*="display: flex; gap: 50px;"] {
+        justify-content: center !important;
+        gap: 20px !important;
+      }
+
+      footer img {
+        width: 100px !important;
+        height: 100px !important;
+      }
+    }
+  </style>
+  <style>
+    @media (max-width: 768px) {
+
+      /* Main container adjustments */
+      footer div[style*="width: 100%; padding: 0 100px;"] {
+        padding: 0 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+
+      /* Content wrapper adjustments */
+      footer div[style*="display: flex; flex-wrap: wrap; justify-content: center;"] {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center !important;
+      }
+
+      /* Sections container */
+      footer div[style*="display: flex; flex-wrap: wrap;"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
+        padding: 20px 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+      }
+
+      /* Individual sections */
+      footer div[style*="flex: 1; min-width: 220px"],
+      footer div[style*="flex: 1; min-width: 200px"] {
+        width: 100% !important;
+        max-width: 280px !important;
+        text-align: center !important;
+        padding: 0 10px !important;
+        margin: 0 auto !important;
+      }
+
+      /* Quick links list */
+      footer ul {
+        display: inline-block !important;
+        text-align: center !important;
+        padding-left: 0 !important;
+      }
+
+      /* Logo section */
+      footer div[style*="text-align: center; margin-bottom: 20px;"] {
+        width: 100% !important;
+        padding: 0 20px !important;
+      }
+
+      /* Social icons */
+      footer div[style*="display: flex; gap: 50px;"] {
+        justify-content: center !important;
+        gap: 30px !important;
+      }
+
+      /* Logo image */
+      footer img {
+        width: 120px !important;
+        height: 120px !important;
+        margin: 0 auto !important;
+      }
+    }
+  </style>
 </head>
 
 <body style="margin: 0; padding: 0; min-height: 100vh; background: #f5f5f5;">
@@ -19,8 +118,7 @@
       style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><g fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;><g fill=&quot;%23ffffff&quot; fill-opacity=&quot;0.05&quot;><circle cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;2&quot;/></g></g></svg>');">
     </div>
 
-   <div style="width: 100%; padding: 0 100px; position: relative; z-index: 1;">
-
+    <div style="width: 100%; padding: 0 100px; position: relative; z-index: 1;">
 
       <!-- Logo and Intro -->
       <div style="flex: 1 1 100%; text-align: center; margin-bottom: 20px;">
@@ -35,19 +133,17 @@
         </p>
       </div>
 
-      <!-- Quick Links -->
-     <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 90px; padding: 40px 20px; text-align: center; max-width: 1400px; margin-left: 100px; margin-right: 10px;">
+      <!-- Quick Links and Sections -->
+      <div
+        style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 90px; padding: 40px 20px; text-align: center; max-width: 1400px; margin-left: 100px; margin-right: 10px;">
 
-
-        <!-- About Section -->
+        <!-- About -->
         <div style="flex: 1; min-width: 220px; padding-bottom: 20px; text-align: left; line-height: 30px;">
-          <!-- <h4 style="color: #72df81;">About Us</h4> -->
-           <a href="{% url 'about' %}" style="text-decoration: none;">
-  <h4 style="color: #72df81;">About Us</h4>
-</a>
-
+          <a href="{% url 'about' %}" style="text-decoration: none;">
+            <h4 style="color: #72df81;">About Us</h4>
+          </a>
           <p style="color: #f1f1f1; max-width: 300px;">
-            Bali Bamboo Resort is your perfect getaway nestled in the heart of Wayanad. Em brace nature, comfort, and
+            Bali Bamboo Resort is your perfect getaway nestled in the heart of Wayanad. Embrace nature, comfort, and
             serenity with us.
           </p>
         </div>
@@ -84,14 +180,15 @@
         <!-- Social Media -->
         <div style="flex: 1; min-width: 200px; padding-bottom: 20px; text-align: left; line-height: 30px;">
           <h4 style="color: #72df81;">Follow Us</h4>
-          <div style="display: flex; gap: 50px;">
-            <a href="https://instagram.com/balibambooresort" target="_blank" style="color: white;"><i
-                class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com/balibambooresort" target="_blank" style="color: white;"><i
-                class="fab fa-facebook-f"></i></a>
-            <a href="https://youtube.com/balibambooresort" target="_blank" style="color: white;"><i
-                class="fab fa-youtube"></i></a>
-          </div>
+          <ul >
+            <li> <a href="https://instagram.com/balibambooresort" target="_blank" style="color: white;"><i
+                  class="fab fa-instagram"></i></a>&nbsp;&nbsp;instagram</li>
+            <li><a href="https://facebook.com/balibambooresort" target="_blank" style="color: white;"><i
+                  class="fab fa-facebook-f"></i></a>&nbsp;&nbsp;facebook</li>
+            <li> <a href="https://youtube.com/balibambooresort" target="_blank" style="color: white;"><i
+                  class="fab fa-youtube"></i></a>&nbsp;&nbsp;youtube</li>
+            <li> <a href="https://youtube.com/balibambooresort" target="_blank" style="color: white;"><i
+                  class="fa-brands fa-whatsapp"></i></a>&nbsp;&nbsp;whatsapp</li>
         </div>
 
       </div>

@@ -1782,8 +1782,169 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-        }
-        
+        } 
+        /* responsive */
+        /* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero-section h1 {
+    font-size: 2rem;
+    padding: 0 20px;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .hero-book-btn {
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+  }
+
+  /* Why Choose Us */
+  .content-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .image-container, 
+  .text-content {
+    min-width: 100%;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .paragraph-section p {
+    font-size: 0.9rem;
+  }
+
+  /* Gallery Section */
+  .g-section {
+    height: auto;
+    padding: 40px 10px;
+  }
+  
+  .g-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .swiper-slide {
+    width: 280px;
+    height: 350px;
+  }
+  
+  .swiper-slide img {
+    height: 350px;
+  }
+  
+  .slide-content h2 {
+    font-size: 1.2rem;
+  }
+  
+  .slide-content p {
+    font-size: 0.8rem;
+  }
+
+  /* Rooms Section */
+  .rooms-section {
+    padding: 30px 15px;
+  }
+  
+  .rooms-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .rooms-header h3 {
+    font-size: 0.9rem;
+  }
+  
+  .rooms-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .room-card {
+    height: 400px;
+  }
+  
+  .room-title {
+    font-size: 1.2rem;
+  }
+  
+  .room-description {
+    font-size: 0.9rem;
+  }
+
+  /* Nearby Locations */
+  .nearby-section {
+    padding: 30px 15px;
+  }
+  
+  .nearby-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .nearby-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nearby-card {
+    height: 400px;
+  }
+
+  /* Testimonials */
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  
+  .testimonial-author {
+    font-size: 1rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .swiper-slide {
+    width: 250px;
+    height: 300px;
+  }
+  
+  .swiper-slide img {
+    height: 300px;
+  }
+  
+  .know-more-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 700px) {
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    height: 83vh;
+  }
+}
   </style>
 
 </head>
@@ -1878,53 +2039,58 @@
 
     <!-- Swiper -->
     <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-         <a href="{% url 'properties' %}"> <img
-            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="Nature Trail"></a>
-              <div class="slide-content">
-                    <h2 class="slide-title">Nature Trail Adventure</h2>
-                    <p class="slide-description">Discover pristine wilderness paths winding through ancient forests. Experience the tranquility of untouched nature while exploring scenic trails that lead to hidden waterfalls and breathtaking viewpoints.</p>
-                </div>
-        </div>
-        <div class="swiper-slide">
-         <a href="{% url 'properties' %}"> <img
-            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="Mountain Adventure"></a>
-            <div class="slide-content">
-                    <h2 class="slide-title">Nature Trail Adventure</h2>
-                    <p class="slide-description">Discover pristine wilderness paths winding through ancient forests. Experience the tranquility of untouched nature while exploring scenic trails that lead to hidden waterfalls and breathtaking viewpoints.</p>
-                </div>
-        </div>
-        <div class="swiper-slide">
-         <a href="{% url 'properties' %}"> <img
-            src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="Sunset Spots"></a>
-            <div class="slide-content">
-                    <h2 class="slide-title">Nature Trail Adventure</h2>
-                    <p class="slide-description">Discover pristine wilderness paths winding through ancient forests. Experience the tranquility of untouched nature while exploring scenic trails that lead to hidden waterfalls and breathtaking viewpoints.</p>
-                </div>
-        </div>
-        <div class="swiper-slide">
-         <a href="{% url 'properties' %}"> <img
-            src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="Tea Gardens"></a>
-            <div class="slide-content">
-                    <h2 class="slide-title">Nature Trail Adventure</h2>
-                    <p class="slide-description">Discover pristine wilderness paths winding through ancient forests. Experience the tranquility of untouched nature while exploring scenic trails that lead to hidden waterfalls and breathtaking viewpoints.</p>
-                </div>
-        </div>
-        <div class="swiper-slide">
-         <a href="{% url 'properties' %}"> <img
-            src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="Valley Views"></a>
-            <div class="slide-content">
-                    <h2 class="slide-title">Nature Trail Adventure</h2>
-                    <p class="slide-description">Discover pristine wilderness paths winding through ancient forests. Experience the tranquility of untouched nature while exploring scenic trails that lead to hidden waterfalls and breathtaking viewpoints.</p>
-                </div>
-        </div>
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <a href="{% url 'properties' %}">
+        <img src="https://img.freepik.com/premium-photo/woman-turquoise-dress-sekumpul-waterfalls-jungles-bali-island-indonesia-bali-travel-concept_247622-29021.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Nature Trail">
+      </a>
+      <div class="slide-content">
+        <h2 class="slide-title">Nature Trail Adventure</h2>
+        <p class="slide-description">Explore forest paths and scenic waterfalls while enjoying peaceful bamboo cottages, organic meals, and campfire nights at Bali Bamboo Resort.</p>
       </div>
+    </div>
+
+    <div class="swiper-slide">
+      <a href="{% url 'properties' %}">
+        <img src="https://img.freepik.com/premium-photo/couple-sit-room-with-view-mountains_1000124-313882.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Mountain Adventure">
+      </a>
+      <div class="slide-content">
+        <h2 class="slide-title">Mountain Serenity</h2>
+        <p class="slide-description">Wake up to breathtaking mountain views, fresh air, and the calm of eco-friendly bamboo cottages — a signature Bali Bamboo Resort experience.</p>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <a href="{% url 'properties' %}">
+        <img src="https://img.freepik.com/free-photo/scene-with-diverse-young-people-being-digital-nomads-working-remotely-from-dreamy-locations_23-2151187855.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Sunset Spots">
+      </a>
+      <div class="slide-content">
+        <h2 class="slide-title">Golden Hour Escape</h2>
+        <p class="slide-description">Capture magical sunsets from your private bamboo balcony. Unwind with tea garden views and end your day with a cozy bonfire under the stars.</p>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <a href="{% url 'properties' %}">
+        <img src="https://img.freepik.com/free-photo/low-angle-wicker-lamps-ceiling-inside-building_181624-47099.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Tea Gardens">
+      </a>
+      <div class="slide-content">
+        <h2 class="slide-title">Tea Garden Bliss</h2>
+        <p class="slide-description">Stroll through nearby tea plantations and enjoy organic cuisine, natural spring pools, and peaceful vibes at our eco-luxury retreat.</p>
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <a href="{% url 'properties' %}">
+        <img src="https://img.freepik.com/premium-photo/rear-view-couple-sitting-wooden-structure_1048944-11378596.jpg?uid=R202398462&ga=GA1.1.2127939480.1748595840&semt=ais_hybrid&w=740" alt="Valley Views">
+      </a>
+      <div class="slide-content">
+        <h2 class="slide-title">Valley View Stays</h2>
+        <p class="slide-description">Relax in bamboo villas overlooking misty valleys. Bali Bamboo Resort offers yoga zones, nature walks, and the perfect photo spots everywhere.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
       <!-- Navigation -->
       <div class="swiper-button-next"></div>
@@ -2256,6 +2422,27 @@
       slider.addEventListener('mouseenter', pauseSlider);
       slider.addEventListener('mouseleave', startSlider);
     });
+
+
+
+    //res4ponsive
+    var swiper = new Swiper(".mySwiper", {
+  // ... existing settings ...
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 10
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    }
+  }
+});
   </script>
   {% include 'footer.html' %}
 </body>
